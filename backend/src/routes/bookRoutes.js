@@ -32,4 +32,17 @@ router.post("/", protectRoute, async (req, res) => {
   }
 });
 
+// pagination infinite loading
+router.get("/", protectRoute, async (req, res) => {
+  try {
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 5;
+    const books = await Book.find().sort({ createdAt: -1 });
+    res.send(books);
+  } catch (error) {
+    console.log("Error getting all books route", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 export default router;
