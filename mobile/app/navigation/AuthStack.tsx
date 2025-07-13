@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from '../screens/auth/SignIn';
+import LoginScreen from '../screens/auth/Signin';
 import SignupScreen from '../screens/auth/Signup';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeScreen from '../components/SafeScreen';
@@ -34,7 +34,7 @@ export default function AuthStack() {
           <Stack.Screen name="Signin" component={LoginScreen} />
         </Stack.Navigator>
       </SafeScreen>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar barStyle={'dark-content '} />
     </SafeAreaProvider>
   );
 }
