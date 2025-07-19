@@ -4,41 +4,26 @@ import {
   Platform,
   KeyboardAvoidingView,
   TextInput,
-  // ActivityIndicator,
   TouchableOpacity,
-  // Alert,
 } from 'react-native';
 import React, { useState } from 'react';
 import styles from '../../../assets/styles/signup.styles.js';
-import Ionicons from "@expo/vector-icons/Ionicons";
-// TODO: need to implement for cli setup
+import Ionicons from '@expo/vector-icons/Ionicons';
 import COLORS from '../../constants/COLOR.js';
 import { useNavigation } from '@react-navigation/native';
-// import { router, useRouter } from "expo-router";
 
 export default function Signup() {
-  const [username, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [username, setUserName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigation = useNavigation();
-  // const { user, isLoading, register, token } = useAuthStore();
-
-  // const router = useRouter();
-
-  // const handleSignup = async () => {
-  //   // setIsLoading(true);
-  //   const result = await register(username, email, password);
-
-  //   if (!result.success) Alert.alert("Error", result.error);
-  // };
-
-  // console.log(user);
-  // console.log(token);
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
+      style={{
+        flex: 1,
+      }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.container}>
@@ -94,7 +79,7 @@ export default function Signup() {
               <View style={styles.inputContainer}>
                 <Ionicons
                   onPress={() => setShowPassword(!showPassword)}
-                  name={showPassword ? "eye" : "eye-off"}
+                  name={showPassword ? 'eye' : 'eye-off'}
                   size={20}
                   color={COLORS.primary}
                   style={styles.inputIcon}
@@ -110,31 +95,10 @@ export default function Signup() {
                 />
               </View>
             </View>
-            {/* 
-            <TouchableOpacity
-              style={styles.button}
-              activeOpacity={0.7}
-              // onPress={handleSignup}
-              // disabled={isLoading}
-            >
-              {isLoading ? (
-                <ActivityIndicator size="small" color="#fff" />
-              ) : (
-                <Text style={styles.buttonText}>Sign Up</Text>
-              )}
-            </TouchableOpacity> */}
 
-            <TouchableOpacity
-              style={styles.button}
-              activeOpacity={0.7}
-              // onPress={handleSignup}
-              // disabled={isLoading}
-            >
-                <Text style={styles.buttonText}>Sign Up</Text>
+            <TouchableOpacity style={styles.button} activeOpacity={0.7}>
+              <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
-
-            {/* footer */}
-
             <View style={styles.footer}>
               <Text>Already have an account </Text>
               <TouchableOpacity onPress={() => navigation.goBack()}>
