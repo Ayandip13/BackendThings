@@ -1,6 +1,6 @@
-import { View, Text, Image } from 'react-native';
-import React, { useState } from 'react';
-import styles from '../../../assets/styles/login.styles';
+import { View, Image } from 'react-native';
+// import React, { useState } from 'react';
+import styles from '../../../assets/styles/login.styles.ts';
 
 const Signin = () => {
   // const [email, setEmail] = useState<string>('');

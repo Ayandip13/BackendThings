@@ -5,10 +5,10 @@ import {
   KeyboardAvoidingView,
   TextInput,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 import React, { useState } from 'react';
-import styles from '../../../assets/styles/signup.styles.js';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import styles from '../../../assets/styles/signup.styles.ts';
 import COLORS from '../../constants/COLOR.js';
 import { useNavigation } from '@react-navigation/native';
 
@@ -19,11 +19,15 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigation = useNavigation();
 
+  const styless = StyleSheet.create({
+    outerContainer: {
+      flex: 1,
+    },
+  });
+
   return (
     <KeyboardAvoidingView
-      style={{
-        flex: 1,
-      }}
+      style={styless.outerContainer}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <View style={styles.container}>
@@ -37,12 +41,6 @@ export default function Signup() {
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Username</Text>
               <View style={styles.inputContainer}>
-                <Ionicons
-                  name="person-outline"
-                  size={20}
-                  color={COLORS.primary}
-                  style={styles.inputIcon}
-                />
                 <TextInput
                   style={styles.input}
                   placeholder="eg. bruise w.."
@@ -57,12 +55,6 @@ export default function Signup() {
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Email</Text>
               <View style={styles.inputContainer}>
-                <Ionicons
-                  name="mail-outline"
-                  size={20}
-                  color={COLORS.primary}
-                  style={styles.inputIcon}
-                />
                 <TextInput
                   style={styles.input}
                   placeholder="bwayne99@.."
@@ -77,13 +69,6 @@ export default function Signup() {
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Password</Text>
               <View style={styles.inputContainer}>
-                <Ionicons
-                  onPress={() => setShowPassword(!showPassword)}
-                  name={showPassword ? 'eye' : 'eye-off'}
-                  size={20}
-                  color={COLORS.primary}
-                  style={styles.inputIcon}
-                />
                 <TextInput
                   style={styles.input}
                   placeholder="Enter your password"
